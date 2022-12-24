@@ -1,3 +1,4 @@
 *.zip
 server/
 version.txt
+backups/
