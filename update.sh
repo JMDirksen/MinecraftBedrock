@@ -31,6 +31,7 @@ wget -q "$download_url" -O "$download_file"
 # Extract
 echo "Extracting archive..."
 unzip -oq "$download_file" -d "server"
+rm "$download_file"
 echo "$latest_version" > "version.txt"
 echo "Updated!"
 
