@@ -1,4 +1,4 @@
-*.zip
 server/
 version.txt
 backups/
+logs/
