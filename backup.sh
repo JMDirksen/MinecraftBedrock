@@ -7,5 +7,5 @@ cd "$(dirname "$0")"
 find "backups/" -mtime +7 -type f -delete
 # Create backup
 backupfile="backups/backup-$(date '+%y%m%d%H%M').tar.gz"
-tar -czf "$backupfile" "server/worlds" "server/server.properties" "server/permissions.json" "logs"
+tar -czf "$backupfile" "server" "logs"
 scp "$backupfile" "server:G:/Backup/bedrock/"
