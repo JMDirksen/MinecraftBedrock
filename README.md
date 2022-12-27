@@ -18,8 +18,8 @@ cd MinecraftBedrock
 ```
 crontab -e
   SHELL=/bin/bash
-  @reboot (echo $(date) Start MinecraftBedrock; ~/MinecraftBedrock/start.sh) >> ~/cron.log 2>&1
-  0 0 * * * (echo $(date) Backup MinecraftBedrock; ~/MinecraftBedrock/backup.sh) >> ~/cron.log 2>&1
-  5 0 * * * (echo $(date) Restart MinecraftBedrock; ~/MinecraftBedrock/restart.sh) >> ~/cron.log 2>&1
-  20 */3 * * * (echo $(date) Update MinecraftBedrock; ~/MinecraftBedrock/update.sh) >> ~/cron.log 2>&1
+  @reboot (echo $(date) Start MinecraftBedrock; ~/MinecraftBedrock/start.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
+  0 0 * * * (echo $(date) Backup MinecraftBedrock; ~/MinecraftBedrock/backup.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
+  5 0 * * * (echo $(date) Restart MinecraftBedrock; ~/MinecraftBedrock/restart.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
+  20 */3 * * * (echo $(date) Update MinecraftBedrock; ~/MinecraftBedrock/update.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
 ```

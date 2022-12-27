@@ -7,4 +7,4 @@ sname=${PWD##*/}
 # Cleanup logs
 find "logs/" -mtime +30 -type f -delete
 # Start server loop in screen with logging
-screen -dmS "$sname" -L -Logfile "logs/server-$(date '+%y%m%d%H%M').log" "./loop.sh"
+screen -dmS "$sname" -L -Logfile "logs/server-$(date '+%y%m%d').log" "./loop.sh"
