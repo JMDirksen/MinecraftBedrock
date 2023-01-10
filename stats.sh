@@ -1,5 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"
+sname=${PWD##*/}
 
 # Settings
 d_avg_samples=288	# Based on daily average with 5 min. interval
@@ -24,9 +25,9 @@ m_max=0
 [[ -f stats.db ]] && . stats.db
 
 # Get current online
-connects=$(grep -c " connected" "$logfile")
-disconnects=$(grep -c " disconnected" "$logfile")
-online=$(($connects-$disconnects))
+screen -S "$sname" -X stuff "list^M"
+sleep 11
+online=$(grep -Eo "There are [0-9]+/[0-9]+ players online:" "$logfile" | tail -n 1 | grep -Eo '[0-9]+/' | grep -Eo '[0-9]+')
 
 # Reset
 [[ $(date '+%H%M') = "0000" ]] && (d_min=99; d_max=0)
@@ -46,7 +47,7 @@ m_avg=$(bc -l <<< "($m_avg*($m_avg_samples-1)+$online)/$m_avg_samples")
 
 # Write db
 echo "last=$online" > stats.db
-echo "last_at=$(date '+%d-%m-%Y %H:%M')" >> stats.db
+echo "last_at=\"$(date '+%d-%m-%Y %H:%M')\"" >> stats.db
 echo "d_avg=$d_avg" >> stats.db
 echo "d_min=$d_min" >> stats.db
 echo "d_max=$d_max" >> stats.db
