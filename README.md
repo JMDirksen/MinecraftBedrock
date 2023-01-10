@@ -23,4 +23,5 @@ crontab -e
   5 0 * * * (echo $(date) Restart MinecraftBedrock; ~/MinecraftBedrock/restart.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
   20 */3 * * * (echo $(date) Update MinecraftBedrock; ~/MinecraftBedrock/update.sh) >> ~/MinecraftBedrock/logs/cron.log 2>&1
   */5 * * * * ~/MinecraftBedrock/stats.sh -q
+  0 0 * * * ~/MinecraftBedrock/rotate_log.sh
 ```
