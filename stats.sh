@@ -23,7 +23,7 @@ m_max=0
 
 # Get current online
 screen -S "$sname" -X stuff "list^M"
-sleep 11
+sleep 15
 online=$(grep -Eo "There are [0-9]+/[0-9]+ players online:" "$logfile" | tail -n 1 | grep -Eo '[0-9]+/' | grep -Eo '[0-9]+')
 
 # Reset
