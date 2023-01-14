@@ -20,6 +20,7 @@ m_max=0
 
 # Load stats
 [[ -f stats.db ]] && . stats.db
+[[ ! -f stats.csv ]] && echo "datetime,players_online" > stats.csv
 
 # Get current online
 screen -S "$sname" -X stuff "list^M"
@@ -48,6 +49,9 @@ echo "w_avg=$w_avg" >> stats.db
 echo "w_max=$w_max" >> stats.db
 echo "m_avg=$m_avg" >> stats.db
 echo "m_max=$m_max" >> stats.db
+
+# Write CSV
+echo "$(date '+%d-%m-%Y %H:%M'),$online" >> stats.csv
 
 # Output
 [[ "$1" != "-q" ]] && (

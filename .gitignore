@@ -3,3 +3,4 @@ logs/
 backups/
 version
 stats.db
+stats.csv
